@@ -6,7 +6,7 @@ if [ ! -f "$PLIST" ]; then
   exit 1
 fi
 
-TODAY=$(date -u "+%Y-%m-%d %H:%M:%S +0000")
+TODAY=$(date -u "+%m/%d/%y %H:%M:%S")
 
 /usr/libexec/PlistBuddy -c "Set :FirstRunDate $TODAY" "$PLIST" 2>/dev/null
 
@@ -19,4 +19,4 @@ fi
 # Convertit en format binaire pour que macOS le relise correctement
 plutil -convert binary1 "$PLIST"
 
-echo "FirstRunDate updated: $TODAY"
+echo "FirstRunDate reset to: $TODAY"
